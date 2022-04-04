@@ -1,0 +1,56 @@
+<br>
+<p>
+<br>
+<p>
+<br>
+<p>
+
+ 
+ <div class="row">
+        <div class="col-md-4">
+            <%= @lead.full_name%>
+        </div>
+
+        <div class="col-md-4">
+            <%= @lead.cie_name %>
+        </div>
+
+        <div class="col-md-4">
+            <%= @lead.email %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <%= @lead.phone %>
+        </div>
+
+        <div class="col-md-4">
+            <%= @lead.project_name %>
+          
+        </div>
+
+        <div class="col-md-4">
+            <%= @lead.department_in_charge%>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <%= @lead.project_description%>
+        </div>
+    </div>
+
+    <div class="clearfix">
+        <%= @lead.message %>
+    </div>
+
+    <div class="clearfix mt-30">
+        <%# f.label :attached_files, "File Attachment" %>
+        <%# f.file_field :attached_files %>
+    </div>
+
+    
+
+
+</div>

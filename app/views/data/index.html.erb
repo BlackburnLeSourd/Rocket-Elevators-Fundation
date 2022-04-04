@@ -1,0 +1,78 @@
+<p>
+<br>
+<p>
+<br>
+<p>
+<br>
+<p>
+<br>
+<p>
+<br>
+
+<h2>How many contact requests are made per month? </h2>
+<br>
+
+<% totalContactRequests = FactContact.count  %> 
+<% endTime = FactContact.order(:createdOn).limit(1).pluck(:createdOn).first %>
+<% startTime = FactContact.order(:createdOn).reverse_order.limit(1).pluck(:createdOn).first %>
+
+<% if startTime != nil %>
+<% timeDifference = (Time.at(endTime).to_date.year * 12 + Time.at(endTime).to_date.month) - (Time.at(startTime).to_date.year * 12 + Time.at(startTime).to_date.month)%>
+<%# timeDifference = (Time.at(startTime).to_date - Time.at(endTime).to_date).to_i %>
+<% end%>
+
+<% if timeDifference == 0 %>
+    <% timeDifference = 1%>
+<% end%>
+<%= totalContactRequests%><h5>Total Number of Requests</h5>
+<br>
+<%= -timeDifference%><h5>Total Number of Months</h5>
+
+<%= number_with_precision(totalContactRequests.to_f / -timeDifference, precision: 2)  %><h5>is the number of contact requests made per month. </h5>
+
+
+<%# <h4>The number of contact requests made per distinct month is (excluding months where no contact requests were made): </h4>
+<% distinctMonths = FactContact.distinct.count(:createdOn) %>
+
+
+<br>
+<h3> Chart 1: Number of Contact Requests Per Month</h3>
+<%= column_chart FactContact.group_by_month(:createdOn, format: "%b %Y").count, xtitle:"Month", ytitle:"Number of Contact Requests"  %>
+<br>
+<br>
+<h2>How many quote solicitations are made per month? </h2>
+<% totalQuotes = FactQuote.count %> 
+<%= totalQuotes%>
+<h5>Total number of quotes</h5>
+<% fqEndTime = FactQuote.order(:createdOn).limit(1).pluck(:createdOn).first %>
+
+<% fqStartTime = FactQuote.order(:createdOn).reverse_order.limit(1).pluck(:createdOn).first %>
+<%if fqStartTime != nil %>
+<% fqTimeDifference = -(Time.at(fqEndTime).to_date.year * 12 + Time.at(fqEndTime).to_date.month - (Time.at(fqStartTime).to_date.year * 12 + Time.at(fqStartTime).to_date.month)) %>
+<% end%>
+<% if fqTimeDifference == 0%>
+    <% fqTtimeDifference = 1%>
+<% end%>
+<%= fqTimeDifference%>
+<h5>Total Number of Months</h5>
+
+<%= number_with_precision(totalQuotes.to_f / fqTimeDifference, precision: 10) %>
+<h5>Number of quotes Per Month</h5>
+<br>
+<h3> Chart 2: Number of Quote Solicitations Per Month</h3>
+<%= column_chart FactQuote.group_by_month(:createdOn, format: "%b %Y").count, xtitle:"Month", ytitle:"Number of Quote Solicitations" %>
+<br>
+<br>
+<h2>How many elevators per customer do we have? </h2>
+<% totalElev = FactElevator.count  %> 
+<% totalCustomers = FactElevator.distinct.count(:customerId) %>
+<% if totalCustomers == 0%>
+    <% totalCustomers= 1%>
+<% end%>
+<%= totalElev / totalCustomers %><h5>elevators per customer</h5>
+<br>
+<h3> Chart 3: Number of Elevators Per Customer</h3>
+<%= column_chart FactElevator.group(:customerId).count, xtitle:"Customers (by IDs)", ytitle:"Number of Elevators"%>
+
+<%= link_to "Go back to Admin Dashboard", "/admin", class:"btn mt-30" %>
+

@@ -1,0 +1,23 @@
+<%= javascript_include_tag('map.js') %>
+<%= stylesheet_link_tag  "map"%>
+
+<% provide :head_tags do %>
+    <meta name='turbolinks-visit-control' content='reload'>
+    <script>
+    data = <%= sanitize @mapData %>
+    document.addEventListener("DOMContentLoaded", function(){
+        initMap(data)
+    });
+    </script>
+<% end %>
+
+
+<p>
+<br>
+<p>
+<br>
+<section>
+<p>
+    <div id="map"></div>
+</p>
+</section>

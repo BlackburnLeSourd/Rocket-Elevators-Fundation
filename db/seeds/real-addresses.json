@@ -1,0 +1,267 @@
+{
+    "addresses": [
+        {
+            "address1": "420 Candlewood Dr",
+            "city": "State College",
+            "suite": "",
+            "state": "Pennsylvania",
+            "postalCode": "16803",
+            "latitude": "40.7970413",
+            "longitude": "-77.9158828"
+        },
+        {
+            "address1": "8 Tulip Ave",
+            "city": "Granite City",
+            "suite": "",
+            "state": "Illinois",
+            "postalCode": "62040",
+            "latitude": "38.7303141",
+            "longitude": "-90.0682527"
+        },
+        {
+            "address1": "201 Eland Dr",
+            "city": "North Fort Myers",
+            "suite": "",
+            "state": "Florida",
+            "postalCode": "33917",
+            "latitude": "26.7119115",
+            "longitude": "-81.8956976"
+        },
+        {
+            "address1": "135 Plaza Dr",
+            "city": "Kerrville",
+            "suite": "108",
+            "state": "Texas",
+            "postalCode": "78028",
+            "latitude": "30.0551358",
+            "longitude": "-99.1644568"
+        },
+        {
+            "address1": "5 Old Manchester Rd",
+            "city": "Amherst",
+            "suite": "",
+            "state": "New Hampshire",
+            "postalCode": "03031",
+            "latitude": "42.8818073",
+            "longitude": "-71.6078434"
+        },
+        {
+            "address1": "107 Mountain View Ct",
+            "city": "Hamilton",
+            "suite": "",
+            "state": "Georgia",
+            "postalCode": "31811",
+            "latitude": "32.7686635",
+            "longitude": "-84.8856425"
+        },
+        {
+            "address1": "149 Munson Rd",
+            "city": "Beacon Falls",
+            "suite": "",
+            "state": "Connecticut",
+            "postalCode": "06403",
+            "latitude": "41.4404407",
+            "longitude": "-73.0367555"
+        },
+        {
+            "address1": "22900 Camden Ct",
+            "city": "Hollywood",
+            "suite": "",
+            "state": "Maryland",
+            "postalCode": "20636",
+            "latitude": "38.2942965",
+            "longitude": "-76.5761166"
+        },
+        {
+            "address1": "100 Turner",
+            "city": "Chester",
+            "suite": "",
+            "state": "Arkansas",
+            "postalCode": "72934",
+            "latitude": "35.6799646",
+            "longitude": "-94.1753651"
+        },
+        {
+            "address1": "3032 Chippewa St",
+            "city": "New Orleans",
+            "suite": "",
+            "state": "Louisiana",
+            "postalCode": "70115",
+            "latitude": "29.9211001",
+            "longitude": "-90.082656"
+        },
+        {
+            "address1": "1502 Old Base Rd",
+            "city": "Rhome",
+            "suite": "",
+            "state": "Texas",
+            "postalCode": "76078",
+            "latitude": "33.0420543",
+            "longitude": "-97.5117672"
+        },
+        {
+            "address1": "494th Rock Cave",
+            "city": "Rock Cave",
+            "suite": "",
+            "state": "West Virginia",
+            "postalCode": "26234",
+            "latitude": "38.8367674",
+            "longitude": "-80.3425838"
+        },
+        {
+            "address1": "4001 Glacier Hills Dr",
+            "city": "Ann Arbor",
+            "suite": "335",
+            "state": "Michigan",
+            "postalCode": "40219",
+            "latitude": "42.2895308",
+            "longitude": "-83.6813281"
+        },
+        {
+            "address1": "118 Oakville Rd",
+            "city": "Shippensburg",
+            "suite": "",
+            "state": "Pennsylvania",
+            "postalCode": "17257",
+            "latitude": "40.1150441",
+            "longitude": "-77.4408082"
+        },
+        {
+            "address1": "29 Sharon Bass Dr",
+            "city": "Hampton",
+            "suite": "",
+            "state": "Virginia",
+            "postalCode": "23664",
+            "latitude": "37.0737242",
+            "longitude": "-76.2965961"
+        },
+        {
+            "address1": "240 E 3rd St",
+            "city": "Tustin",
+            "suite": "",
+            "state": "California",
+            "postalCode": "92780",
+            "latitude": "33.742837",
+            "longitude": "-117.821633"
+        },
+        {
+            "address1": "848 Blair Loop",
+            "city": "Walland",
+            "suite": "",
+            "state": "Tennessee",
+            "postalCode": "37886",
+            "latitude": "35.7580826",
+            "longitude": "-83.807618"
+        },
+        {
+            "address1": "10340 Cullman Ave",
+            "city": "Whittier",
+            "suite": "",
+            "state": "California",
+            "postalCode": "90603",
+            "latitude": "33.9427488",
+            "longitude": "-117.98313"
+        },
+        {
+            "address1": "5271 Skylark Dr",
+            "city": "Byram",
+            "suite": "",
+            "state": "Mississippi",
+            "postalCode": "39272",
+            "latitude": "32.2099776",
+            "longitude": "-90.2527153"
+        },
+        {
+            "address1": "308 Bald Hill St",
+            "city": "Evansville",
+            "suite": "",
+            "state": "IN",
+            "postalCode": "47711",
+            "latitude": "37.9694526",
+            "longitude": "-87.6630679"
+        },
+        {
+            "address1": "917 N 9th St",
+            "city": "Fort Pierce",
+            "suite": "",
+            "state": "Florida",
+            "postalCode": "34950",
+            "latitude": "27.45667",
+            "longitude": "-80.3319213"
+        },
+        {
+            "address1": "1304 S Frankfort Ave",
+            "city": "Russellville",
+            "suite": "",
+            "state": "Arkansas",
+            "postalCode": "72801",
+            "latitude": "35.2661293",
+            "longitude": "-93.1270094"
+        },
+        {
+            "address1": "7814 Monroe St.",
+            "city": "Crawfordsville",
+            "suite": "",
+            "state": "IN",
+            "postalCode": "47933",
+            "latitude": "39.9821325",
+            "longitude": "-87.0536784"
+        },
+        {
+            "address1": "396 Hancock St",
+            "city": "Washington",
+            "suite": "",
+            "state": "Pennsylvania",
+            "postalCode": "15301",
+            "latitude": "42.7765572",
+            "longitude": "-71.0972601"
+        },
+        {
+            "address1": "328 Hooven Ave",
+            "city": "Hamilton",
+            "suite": "",
+            "state": "Ohio",
+            "postalCode": "45015",
+            "latitude": "39.3673206",
+            "longitude": "-84.5623797"
+        },
+        {
+            "address1": "9341 N. Pulaski Ave",
+            "city": "Romeoville",
+            "suite": "",
+            "state": "IL",
+            "postalCode": "60446",
+            "latitude": "40.630871399318124",
+            "longitude": "-74.14794133137582"
+        },
+        {
+            "address1": "13 Mckinnel Ct",
+            "city": "Branford",
+            "suite": "",
+            "state": "Connecticut",
+            "postalCode": "06405",
+            "latitude": "41.9480574",
+            "longitude": "-76.4953602"
+        },
+        {
+            "address1": "1366 Coleman Boylan Dr",
+            "city": "League City",
+            "suite": "",
+            "state": "Texas",
+            "postalCode": "77573",
+            "latitude": "29.4930151",
+            "longitude": "-95.0874279"
+        },
+        {
+            "address1": "230 Bean Tree Ln",
+            "city": "Williamsburg",
+            "suite": "",
+            "state": "Pennsylvania",
+            "postalCode": "16693",
+            "latitude": "40.3916286",
+            "longitude": "-78.2329213"
+        }
+        
+    ]
+}
+    

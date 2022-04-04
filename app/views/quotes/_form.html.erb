@@ -1,0 +1,157 @@
+<%= javascript_include_tag('quote_js.js') %>
+<%= stylesheet_link_tag  "quote"%>
+
+<br>
+<p>
+
+<section class="alternate">
+
+<div class="quote-page">
+<%= form_with(model: quote, local: true) do |form| %>
+  <% if quote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(quote.errors.count, "error") %> prohibited this quote from being saved:</h2>
+
+      <ul>
+      <% quote.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  
+  <div class="field" id="building_type" onchange="selectBuildingType()">
+    <% building_type_options = [["--select--","select"], ["Residential", "residential"], ["Commercial", "commercial"], ["Corporate", "corporate"], ["Hybrid", "hybrid"]]%>
+    <%= form.label :building_type %>
+    <%# select_tag :building_type, options_for_select(building_type_options) %>
+    <div onchange="selectBuildingType()" >
+    <%= form.select(:building_type, options_for_select(building_type_options)) %>
+    </div>
+  </div>
+
+  <div id="input_form">
+
+  <div class="field">
+    <%= form.label :fullName, "Full Name"%>
+    <%= form.text_field :fullName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :companyName, "Company Name"%>
+    <%= form.text_field :companyName %>
+  </div>
+
+   <div class="field">
+    <%= form.label :email, "Email" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone, "Phone Number"%>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :department, "Department"%>
+    <%= form.text_field :department %>
+  </div>
+
+  <div class="field">
+    <%= form.label :projectName, "Project Name"%>
+    <%= form.text_field :projectName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :projectDesc, "Project Description"%>
+    <%= form.text_field :projectDesc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :message, "Message"%>
+    <%= form.text_field :message %>
+  </div>
+
+  <div class="field" id="no_of_apartments" onchange="detectInput()" hidden>
+    <%= form.label :no_of_apartments %>
+    <%= form.number_field :no_of_apartments %>
+  </div>
+
+  <div class="field" id="no_of_floors" onchange="detectInput()" hidden>
+    <%= form.label :no_of_floors %>
+    <%= form.number_field :no_of_floors %>
+  </div>
+
+  <div class="field" id="no_of_basements" onchange="detectInput()" hidden>
+    <%= form.label :no_of_basements %>
+    <%= form.number_field :no_of_basements %>
+  </div>
+
+  <div class="field" id="no_of_businesses" onchange="detectInput()" hidden>
+    <%= form.label :no_of_businesses %>
+    <%= form.number_field :no_of_businesses %>
+  </div>
+
+  <div class="field" id="no_of_parking_spaces" onchange="detectInput()" hidden>
+    <%= form.label :no_of_parking_spaces %>
+    <%= form.number_field :no_of_parking_spaces %>
+  </div>
+
+  <div class="field" id="no_of_elevator_cages" onchange="detectInput()" hidden>
+    <%= form.label :no_of_elevator_cages %>
+    <%= form.number_field :no_of_elevator_cages %>
+  </div>
+
+  <div class="field" id="max_of_occupants_per_floor" onchange="detectInput()" hidden >
+    <%= form.label :max_of_occupants_per_floor %>
+    <%= form.number_field :max_of_occupants_per_floor %>
+  </div>
+
+  <div class="field" id="no_of_hours_of_activities" onchange="detectInput()" hidden>
+    <%= form.label :no_of_hours_of_activities %>
+    <%= form.number_field :no_of_hours_of_activities %>
+  </div>
+
+</div>
+
+  <div class="field" onchange="detectInput()">
+    <%= form.label :product_line, "Please choose a product line:" %>
+     <%= form.radio_button :product_line, 'standard', :checked => true %> Standard
+     <%= form.radio_button :product_line, 'premium'%>  Premium
+     <%= form.radio_button :product_line, 'excelium'%> Excelium
+  </div>
+
+  <div id="results" hidden>
+
+  <div class="field" id="no_of_elevators_needed" >
+    <%= form.label :no_of_elevators_needed %>
+    <%= form.number_field :no_of_elevators_needed  %>
+  </div>
+
+   <div class="field" id="unit_price" >
+    <%= form.label :unit_price  %>
+    <%= form.number_field :unit_price  %>
+  </div>
+   <div class="field" id="total_price_of_elevators" >
+    <%= form.label :total_price_of_elevators  %>
+    <%= form.number_field :total_price_of_elevators  %>
+  </div>
+   <div class="field" id="installation_fees" >
+    <%= form.label :installation_fees  %>
+    <%= form.number_field :installation_fees, :step=>"any"%>
+  </div>
+   <div class="field" id="final_price" >
+    <%= form.label :final_price  %>
+    <%= form.number_field :final_price, :step=>"any" %>
+  </div>
+
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Calculate Now"%>
+  </div>
+<% end %>
+
+</div>
+</section>

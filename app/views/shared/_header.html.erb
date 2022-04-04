@@ -1,0 +1,123 @@
+<div id="header" class="navbar-toggleable-md clearfix sticky header-md">
+
+        <!-- TOP NAV -->
+        <header id="topNav">
+          <div class="container">
+            <!-- Mobile Menu Button -->
+            <button
+              class="btn btn-mobile"
+              data-toggle="collapse"
+              data-target=".nav-main-collapse"
+            >
+              <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- Logo -->
+            <a class="logo float-left" href="/"> 
+            <%= image_tag "R2.png" %>
+            </a>
+
+            <!-- 
+							Top Nav 
+							
+							AVAILABLE CLASSES:
+							submenu-dark = dark sub menu
+						-->
+            <div class="navbar-collapse collapse float-right nav-main-collapse">
+              <nav class="nav-main">
+                <!--
+									NOTE
+									
+									For a regular link, remove "dropdown" class from LI tag and "dropdown-toggle" class from the href.
+									Direct Link Example: 
+									<li>
+										<a href="#">HOME</a>
+									</li>
+								-->
+                <!-- 
+										MENU ANIMATIONS
+											.nav-animate-fadeIn
+											.nav-animate-fadeInUp
+											.nav-animate-bounceIn
+											.nav-animate-bounceInUp
+											.nav-animate-flipInX
+											.nav-animate-flipInY
+											.nav-animate-zoomIn
+											.nav-animate-slideInUp
+											.nav-hover-animate 		= animate text on hover
+											.hover-animate-bounceIn = bounceIn effect on mouse over of main menu
+									-->
+                <ul id="topMain" class="nav nav-pills nav-main">
+                  <li
+                    class="mega-menu nav-animate-fadeIn nav-hover-animate hover-animate-bounceIn"
+                  >
+                    <!-- THEMATIC -->
+                    <a class="dropdown-toggle noicon" id="home-nav" href="/"> HOME </a>
+                  </li>
+                  <li
+                    class="dropdown nav-animate-fadeIn nav-hover-animate hover-animate-bounceIn"
+                  >
+                    <!-- PAGES -->
+                    <a class="dropdown-toggle" id="services-nav" href="/#services"> SERVICES </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="residential.html"
+                          >Residential Building Service</a
+                        >
+                      </li>
+                      <li>
+                        <a href="commercial.html">Corporate Building Service</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li
+                    class="dropdown mega-menu nav-animate-fadeIn nav-hover-animate hover-animate-bounceIn"
+                  >
+                    <!-- THEMATIC -->
+                    <a class="dropdown-toggle noicon" id="portfolio-nav" href="/#portfolio"> PORTFOLIO </a>
+                  </li>
+                   <li
+                    class="dropdown mega-menu nav-animate-fadeIn nav-hover-animate hover-animate-bounceIn"
+                  >
+                    <!-- THEMATIC -->
+                    <a class="dropdown-toggle noicon" id="news-nav" href="/#news"> NEWS </a>
+                  </li> 
+                  <li
+                    class="dropdown mega-menu nav-animate-fadeIn nav-hover-animate hover-animate-bounceIn"
+                  >
+                    <!-- THEMATIC -->
+                    <a class="dropdown-toggle noicon" id="clients-nav" href="/#clients"> CLIENTS </a>
+                  </li>
+                  <li
+                    class="dropdown mega-menu nav-animate-fadeIn nav-hover-animate hover-animate-bounceIn"
+                  >
+                    <!-- THEMATIC -->
+                    <a class="dropdown-toggle noicon" id="contact-nav" href="/#contact"> CONTACT </a>
+                  </li>
+                  <li
+                    class="dropdown mega-menu nav-animate-fadeIn nav-hover-animate hover-animate-bounceIn"
+                  >
+                  
+                    
+                    <% if user_signed_in? %>
+                    <%= link_to "LOG OUT", destroy_user_session_path, :method=>'delete'%>
+                    <% else %>
+                    <%= link_to "LOG IN", new_user_session_path %>
+                    <% end %>
+
+                    <li
+                    
+                    class="dropdown mega-menu nav-animate-fadeIn nav-hover-animate hover-animate-bounceIn"
+                  >
+                    <% if user_signed_in? and current_user.admin? %>
+                  <%= link_to "ADMIN", rails_admin_path %>
+                    <% end %>
+                    
+                  
+                  
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </header>
+        <!-- /Top Nav -->

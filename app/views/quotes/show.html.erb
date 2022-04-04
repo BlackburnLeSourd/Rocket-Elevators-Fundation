@@ -1,0 +1,126 @@
+<%= javascript_include_tag('quote_show.js') %>
+<br>
+<p>
+<br>
+<p>
+<br>
+<p>
+
+<p id="notice" onload="showRelevantBuildingType()"><%= notice %></p>
+<p>
+  <strong>Full Name:</strong>
+  <div><%= @quote.fullName%></div>
+</p>
+
+<p>
+  <strong>Company Name:</strong>
+  <div><%= @quote.companyName%></div>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <div><%= @quote.email%></div>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <div><%= @quote.phone%></div>
+</p>
+
+<p>
+  <strong>Department:</strong>
+  <div><%= @quote.department%></div>
+</p>
+
+<p>
+  <strong>Project Name:</strong>
+  <div><%= @quote.projectName%></div>
+</p>
+
+<p>
+  <strong>Project Description:</strong>
+  <div><%= @quote.projectDesc%></div>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <div><%= @quote.message%></div>
+</p>
+
+<p>
+  <strong>Building type:</strong>
+  <div id="quote_building_type"><%= @quote.building_type%></div>
+</p>
+
+<p>
+  <strong>Product line:</strong>
+  <%= @quote.product_line %>
+</p>
+
+<p id="no_of_apartments" hidden>
+  <strong>No of apartments:</strong>
+  <%= @quote.no_of_apartments %>
+</p>
+
+<p id="no_of_floors" hidden>
+  <strong>No of floors:</strong>
+  <%= @quote.no_of_floors %>
+</p>
+
+<p id="no_of_basements" hidden>
+  <strong>No of basements:</strong>
+  <%= @quote.no_of_basements %>
+</p>
+
+<p id="no_of_businesses" hidden>
+  <strong>No of businesses:</strong>
+  <%= @quote.no_of_businesses %>
+</p>
+
+<p id="no_of_parking_spaces" hidden>
+  <strong>No of parking spaces:</strong>
+  <%= @quote.no_of_parking_spaces %>
+</p>
+
+<p id="no_of_elevator cages" hidden>
+  <strong>No of elevator cages:</strong>
+  <%= @quote.no_of_elevator_cages %>
+</p>
+
+<p id="max_of_occupants_per_floor" hidden>
+  <strong>Max of occupants per floor:</strong>
+  <%= @quote.max_of_occupants_per_floor %>
+</p>
+
+<p id="no_of_hours_of_activities" hidden>
+  <strong>No of hours of activities:</strong>
+  <%= @quote.no_of_hours_of_activities %>
+</p>
+
+<p>
+  <strong>Number of elevators needed:</strong>
+  <%= @quote.no_of_elevators_needed %>
+</p>
+
+<p>
+  <strong>Unit price:</strong>
+  <%= @quote.unit_price %>
+</p>
+
+<p>
+  <strong>Total price of elevators:</strong>
+  <%= @quote.total_price_of_elevators %>
+</p>
+
+<p>
+  <strong>Installation Fees:</strong>
+  <%= @quote.installation_fees %>
+</p>
+
+<p>
+  <strong>Final price:</strong>
+  <%= @quote.final_price %>
+</p>
+
+<%= link_to 'Edit', edit_quote_path(@quote) %> |
+<%= link_to 'Back', quotes_path %>

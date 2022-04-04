@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Building_ID: MyString
+  Information_Key: MyString
+  Value: MyString
+
+two:
+  Building_ID: MyString
+  Information_Key: MyString
+  Value: MyString

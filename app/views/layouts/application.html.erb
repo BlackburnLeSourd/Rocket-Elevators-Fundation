@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+
+  <head>
+    <title>Rocket Elevators Information System</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <title>RocketElevatorsInformationSystem</title>
+    
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
+    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+ENV['GOOGLE_MAPS_API_KEY'] %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield(:head_tags) %>
+    </head>
+  
+   
+
+  <body>
+
+     <%= render 'shared/header' unless @disable_nav %>
+  
+    <%= yield %>
+    <%= render 'shared/footer' unless @disable_nav %>
+  </body>
+  
+  
+</html>

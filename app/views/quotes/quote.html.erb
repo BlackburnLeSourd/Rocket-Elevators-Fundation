@@ -1,0 +1,396 @@
+<%= javascript_path 'quote_js' %>
+
+<section>
+        <div class="container col-6">
+          <!-- FORM -->
+          <div class="col-md">
+            <h3>Fill out this form to get a quote instantly!</h3>
+            <%= form_with model: @quote do |f| %> 
+              <form>
+                <div class="row">
+                  <div class="col-md-4">
+                    <%=f.label :buildingType, "Building Type" %> 
+                    <label>Building Type</label>
+                    <label id="buildingType">
+                    <select
+                      class="form-control pointer"
+                      id="building-type"
+                      onchange="selectBuildingType()"
+                    >
+                      <option id="building-type-form" value="">--- Select ---</option>
+                      <option id="residential" value="residential">
+                        Residential
+                      </option>
+                      <option id="commercial" value="commercial">
+                        Commercial
+                      </option>
+                      <option id="corporate" value="corporate">
+                        Corporate
+                      </option>
+                      <option id="hybrid" value="hybrid">Hybrid</option>
+                    </select>
+                  </div>
+                </div>
+                </form>
+
+            <div id="details">
+              <div hidden type="residential" id="residential">
+                <div class="row">
+                  <div class="col-md-4" id="number-of-apartments">
+                    <label>Number of apartments in the building: *</label>
+                    <input
+                      min="1"
+                      max="100000"
+                      type="number"
+                      oninput="detectInput('residential')"
+                      id="residential-apartment"
+                      class="form-control"
+                    >
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="number-of-floors" class="col-md-4">
+                    <label
+                      >Number of floors contained in the building, excluding
+                      basements: *</label>
+                    <input
+                      min="1"
+                      max="100000"
+                      type="number"
+                      oninput="detectInput('residential')"
+                      id="residential-floors"
+                      class="form-control"
+                    >
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="number-of-basements" class="col-md-4">
+                    <label
+                      >Number of basements contained in the building: *</label>
+                    <input
+                      min="0"
+                      max="100000"
+                      type="number"
+                      oninput="detectInput('residential')"
+                      id="residential-basements"
+                      class="form-control"/>
+                  </div>
+                </div>
+              </div>
+
+              <div hidden type="commercial" id="commercial">
+                <div class="row">
+                  <div id="number-of-companies" class="col-md-4">
+                    <label>Number of distinct businesses:</label>
+                    <input
+                    min="0"
+                    max="100000"
+                      type="number"
+                      id="value"
+                      class="form-control">
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="number-of-floors" class="col-md-4">
+                    <label>Number of floors contained in the building, excluding basements</label>
+                    <input min="1" max="100000" type="number" id="value" class="form-control">
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="number-of-basements" class="col-md-4">
+                    <label
+                      >Number of basements contained in the building:</label
+                    >
+                    <input
+                    min="0"
+                    max="100000"
+                      type="number"
+                      id="value"
+                      class="form-control"
+                    >
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="number-of-parking-spots" class="col-md-4">
+                    <label>Number of parking space available:</label>
+                    <input
+                    min="0"
+                    max="100000"
+                      type="number"
+                      id="value"
+                      class="form-control"
+                    >
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div id="number-of-elevators" class="col-md-4">
+                    <label>Number of elevator cages to be deployed: *</label>
+                    <input 
+                      
+                      min="1"
+                      max="1000"
+                      type="number"
+                      id="commercial-elevators"
+                      oninput="detectInput('commercial')"
+                      
+                      class="form-control"
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div hidden type="corporate" id="corporate">
+                <div class="row">
+                  <div id="number-of-corporations" class="col-md-4">
+                    <label>Number of separate tenant companies:</label>
+                    <input
+                    min="0"
+                      max="100000"
+                      type="number"
+                      id="value"
+                      class="form-control"
+                    >
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="number-of-floors" class="col-md-4">
+                    <label
+                      >Number of floors contained in the building, excluding
+                      basements: *</label
+                    >
+                    <input
+                    min="1"
+                      max="100000"
+                      type="number"
+                      id="corporate-floors"
+                      oninput="detectInput('corporate')"
+                      class="form-control"
+                    >
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="number-of-basements" class="col-md-4">
+                    <label
+                      >Number of basements contained in the building: *</label
+                    >
+                    <input
+                    min="0"
+                      max="100000"
+                      type="number"
+                      id="corporate-basements"
+                      oninput="detectInput('corporate')"
+                      class="form-control"
+                    >
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div id="number-of-parking-spots" class="col-md-4">
+                    <label>Number of parking spaces available:</label>
+                    <input
+                    min="0"
+                      max="100000"
+                      type="number"
+                      id="value"
+                      class="form-control"
+                    >
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="maximum-occupancy" class="col-md-4">
+                    <label>Maximum number of occupants per floor: *</label>
+                    <input
+                    min="1"
+                      max="10000000"
+                      type="number"
+                      id="corporate-max-occupants"
+                      oninput="detectInput('corporate')"
+                      class="form-control"
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div hidden id="hybrid">
+                <div class="row">
+                  <div id="number-of-companies" class="col-md-4">
+                    <label>Number of distinct businesses:</label>
+                    <input
+                    min="0"
+                      max="100000"
+                      type="number"
+                      id="value"
+                      class="form-control"
+                    >
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="number-of-floors" class="col-md-4">
+                    <label
+                      >Number of floors contained in the building, excluding
+                      basements: *</label>
+                    <input
+                      min="1"
+                      max="100000"
+                      type="number"
+                      id="hybrid-floors"
+                      oninput="detectInput('hybrid')"
+                      class="form-control"
+                    >
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="number-of-basements" class="col-md-4">
+                    <label
+                      >Number of basements contained in the building: *</label
+                    >
+                    <input
+                    min="0"
+                      max="100000"
+                      type="number"
+                      id="hybrid-basements"
+                      oninput="detectInput('hybrid')"
+                      class="form-control"
+                    >
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div id="number-of-parking-spots" class="col-md-4">
+                    <label>Number of parking spaces available:</label>
+                    <input
+                    min="0"
+                      max="1000000"
+                      type="number"
+                      id="value"
+                      class="form-control"
+                    >
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="maximum-occupancy" class="col-md-4">
+                    <label>Maximum number of occupants per floor: *</label>
+                    <input
+                    min="1"
+                      max="10000000"
+                      type="number"
+                      id="hybrid-max-occupants"
+                      oninput="detectInput('hybrid')"
+                      
+                      class="form-control"
+                    >
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="business-hours" class="col-md-4">
+                    <label>Number of hours of activity of the building:</label>
+                    <input
+                      min="0"
+                      max="24"
+                      type="number"
+                      id="value"
+                      class="form-control"
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+      
+            <form id="product-line">
+            <!-- radio -->
+            <div >
+            <label >Please select a product line: </label>
+            <label class="radio">
+              <input
+                type="radio"
+                name="product"
+                id="standard"
+                value="standard"
+                checked="checked"
+                onclick="getAQuote(document.getElementById('building-type').value)"
+              >
+              <i>Standard</i>
+            </label>
+            <label class="radio">
+              <input
+                type="radio"
+                name="product"
+                id="premium"
+                value="premium"
+                onclick="getAQuote(document.getElementById('building-type').value)"
+              >
+              <i>Premium</i>
+            </label>
+            <label class="radio">
+              <input
+                
+                type="radio"
+                name="product"
+                id="excelium"
+                value="excelium"
+                onclick="getAQuote(document.getElementById('building-type').value)"
+              >
+              <i>Excelium</i>
+            </label>
+            </div>
+            </form>
+        </div>
+        </div>
+</section>        
+
+
+<section>
+        <div class="container">
+
+          <div class="row">
+            <div id="elevator-amount" class="col-md-4">
+              
+                <label>Number of Elevators Needed: </label>
+                
+                <input class="form-control" disabled id="show-elevatorCount">
+            </div>
+          </div>
+          <div class="row">
+            <div id="elevator-unit-price" class="col-md-4">
+            
+              <label>Unit Price: </label>
+              
+              <input type="text" class="form-control" disabled id="show-unitPrice">
+            
+             </div>
+          </div>
+          <div class="row">
+            <div id="elevator-total-price" class="col-md-4">
+            
+             <label>Total Price of Elevators: </label>
+            
+             <input class="form-control" disabled id="show-totalElevatorPrice">
+            </div>
+          </div>
+
+      
+
+           
+        <div class="row">
+          <div id="installation-fees" class="col-md-4">
+            
+            <label>Installation Fees:  </label>
+            
+            <input class="form-control" disabled id="show-installFee">
+          </div>
+          </div>
+          <div class="row">
+          <div id="final-price" class="col-md-4">
+            
+            <label>Final Price:  </label>
+            
+            <input class="form-control" disabled id="show-finalPrice">
+          </div>
+        </div>
+        
+            
+        
+        </div>
+    </section>

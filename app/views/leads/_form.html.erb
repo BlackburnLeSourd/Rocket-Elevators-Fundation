@@ -1,0 +1,63 @@
+ <%= form_with(model: @lead, local: true) do |f| %>
+    <div class="row">
+        <div class="col-md-4">
+            <%= f.label :full_name, "Full contact name" %>
+            <%= f.text_field :full_name %>
+        </div>
+
+        <div class="col-md-4">
+            <%= f.label :cie_name, "Business name" %>
+            <%= f.text_field :cie_name %>
+        </div>
+
+        <div class="col-md-4">
+            <%= f.label :email, "E-mail" %>
+            <%= f.email_field :email %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <%= f.label :phone, "Phone" %>
+            <%= f.telephone_field :phone %>
+        </div>
+
+        <div class="col-md-4">
+            <%= f.label :project_name, "Project name" %>
+            <%= f.text_field :project_name %>
+        </div>
+
+        <div class="col-md-4">
+            <%= f.label :department_in_charge, "Department" %>
+            <%= f.text_field :department_in_charge %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <%= f.label :project_description, "Project description" %>
+            <%= f.text_area :project_description %>
+        </div>
+    </div>
+
+    <div class="clearfix">
+        <%= f.label :message, "Message" %>
+        <%= f.text_area :message %>
+    </div>
+
+    <div class="clearfix mt-30">
+        <%= f.label :attached_files, "File Attachment" %>
+        <%= f.file_field :attached_files %>
+    
+        <small class="text-muted block">
+            Max file size: 10Mb (zip/pdf/jpg/png)
+        </small>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <%= f.submit "SEND MESSAGE" %>    
+        </div>
+    </div>
+</div>
+<% end %>

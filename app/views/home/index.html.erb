@@ -1,0 +1,703 @@
+<p id="notice"><%= notice %></p>
+<title>Rocket Elevators</title>
+<%= stylesheet_link_tag  "green" %>
+<%= javascript_include_tag  'index.js' %>
+
+ <div class="slider-container">
+  <div class="slider">
+    <div class="slides">
+      <div id="slides__1" class="slide slide1">
+      <div class="slide-content" >
+        <a class="btn btn-default btn-lg mt-30" href="/#services">OUR SERVICES</a>
+        <%= link_to "GET A QUOTE", "/quotes/new", class:"btn btn-info btn-lg mt-30" %>  
+        </div>
+      </div>
+      <div id="slides__2" class="slide slide2">
+      <div class="slide-content" >
+        <a class="btn btn-default btn-lg mt-30" href="residential.html">VIEW MORE DETAILS</a>
+      </div>
+      </div>
+      <div id="slides__3" class="slide slide3">
+      <div class="slide-content" >
+        <a class="btn btn-default btn-lg mt-30" href="commercial.html">VIEW MORE DETAILS</a>
+</div>
+      </div>
+    </div>
+    <div class="slider__nav">
+      <a class="slider__navlink" onclick="currentSlide(1)"></a>
+      <a class="slider__navlink" onclick="currentSlide(2)"></a>
+      <a class="slider__navlink" onclick="currentSlide(3)"></a>
+    </div>
+  </div>
+</div>
+
+<!--Services-->
+      <section class="alternate" id="services">
+				<div class="container">
+
+					<h2 class="fs-25">An <span>Award-winning</span> Company</h2>
+
+          <p class="lead">
+            Rocket Elevators is proud to bring real quality and personality to
+            the elevators industry. Rocket Elevators has won numerous major
+            industry awards and worked on countless large-scale projects with
+            major corporations. With our unmatched service and reliability, we
+            are your leading choice for elevator construction services.
+          </p>
+
+          <a href="#portfolio" class="btn btn-default"
+            >VIEW OUR AWARDS AND EXAMPLE PROJECTS</a
+          >
+
+					<div class="row">
+            <div class="mt-60">
+            <ul class="nav nav-tabs nav-clean">
+              <li class="nav-item">
+                <a class="nav-link active" href="#tab1" data-toggle="tab"
+                  >Residential Building Service</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#tab2" data-toggle="tab"
+                  >Corporate Building Service</a
+                >
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <div id="tab1" class="tab-pane active">
+                <%= image_tag "AdobeStock_130711085.jpeg", class: 'float-left img-fluid', style: 'width: 300px;' %>
+                <p>
+                  We offer residential elevator services in sales, installation,
+                  maintenance and service. Residential Elevators are so much
+                  more than eye candy for your abode. Beautiful, yes, but do not
+                  dismiss its functionality. They benefit people from all walks
+                  of life, with the mobility, transportation advantages,
+                  convenience, residence value, and minimal maintenance it
+                  offers.
+                </p>
+                <p>
+                  <a href="residential.html" class="btn btn-default">VIEW MORE DETAILS</a>
+                </p>
+              </div>
+
+              <div id="tab2" class="tab-pane fade">
+                <%= image_tag "AdobeStock_146216308.jpeg", class: 'float-left img-fluid', style: 'width: 300px;' %>
+                <p>
+                  We are combining our legacy as an industry pioneer, our
+                  current industry leadership position and our vision to give
+                  people freedom to connect and thrive in a taller, faster,
+                  smarter world.
+                </p>
+                <p>
+                  <%= link_to "VIEW MORE DETAILS", "/commercial", class:"btn btn-default" %>
+                </p>
+              </div>
+            </div>
+          </div>
+
+						
+
+					</div>
+
+          
+
+				</div>
+			</section>
+  <!--/Services-->
+   <!--Portfolio-->
+  <section id="portfolio">
+				<div class="container">
+
+					<div class="heading-title heading-dotted text-center">
+						<h2>Featured Work</h2>
+					</div>
+
+					<div class="text-center">
+						<ul class="nav nav-pills mix-filter mb-60">
+							<li data-filter="all" class="filter active" onclick="filterAll()">
+							  <a>All</a>
+							</li>
+							<li data-filter="residential" class="filter" onclick="filterResidential()">
+							  <a>Residential Projects</a>
+							</li>
+							<li data-filter="corporate" class="filter" onclick="filterCorporate()">
+							  <a>Corporate Projects</a>
+							</li>
+							<li data-filter="award" class="filter" onclick="filterAward()"><a>Awards</a></li>
+						  </ul>
+					</div>
+
+				</div>
+
+				<div id="portfolio" class="portfolio-nogutter">
+
+						<div class="row mix-grid">
+              
+							<div class="col-md-3 col-sm-3 corporate">
+								<!-- item 1 -->
+								<div class="item-box">
+									<figure>
+										<span class="item-hover">
+                      <span class="overlay dark-5"></span>
+                    </span>
+										<%= image_tag "AdobeStock_73868131.jpeg", class: 'img-fluid', style: 'width:600px; height:399px;' %>
+									</figure>
+									<div class="item-box-desc">
+                    <h3>ABC Building, Vancouver</h3>
+                    <ul class="list-inline categories m-0">
+                      <li>Residential Building</li>
+                      <li>2022</li>
+                    </ul>
+                  </div>
+
+								</div>
+
+							</div><!-- /item -->
+
+
+							<!-- item 2 -->
+
+							<div class="col-md-3 col-sm-3 residential">
+                <!-- item -->
+
+                <div class="item-box">
+                  <figure>
+                    <span class="item-hover">
+                      <span class="overlay dark-5"></span>
+                    </span>
+                    <%= image_tag "AdobeStock_66781279.jpeg", class: 'img-fluid', style: 'width:600px; height:399px;' %>             
+                  </figure>
+
+                  <div class="item-box-desc">
+                    <h3>EFG Building, Seattle</h3>
+                    <ul class="list-inline categories m-0">
+                      <li><a href="#">Residential Building</a></li>
+                      <li><a href="#">2020</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+							<!-- /item -->
+
+              <!-- item 3 -->
+							<div class="col-md-3 col-sm-3 corporate">
+                <!-- item -->
+
+                <div class="item-box">
+                  <figure>
+                    <span class="item-hover">
+                      <span class="overlay dark-5"></span>
+                    </span>
+                    <%= image_tag "AdobeStock_78149317.jpeg", class: 'img-fluid', style: 'width:600px; height:399px;' %>             
+                  </figure>
+
+                  <div class="item-box-desc">
+                    <h3>HIG Building, Toronto</h3>
+                    <ul class="list-inline categories m-0">
+                      <li><a href="#">Coroporate Building</a></li>
+                      <li><a href="#">2020</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div><!-- /item -->
+
+              <!-- item 4 -->
+							<div class="col-md-3 col-sm-3 award">
+                <!-- item -->
+
+                <div class="item-box">
+                  <figure>
+                   <span class="item-hover">
+                      <span class="overlay dark-5"></span>
+                    </span>
+                    <%= image_tag "award2.jpeg", class: 'img-fluid', style: 'width:600px; height:399px;' %>
+                  </figure>
+
+                  <div class="item-box-desc">
+                    <h3>CEA Winner</h3>
+                    <ul class="list-inline categories m-0">
+                      <li><a href="#">Award</a></li>
+                      <li><a href="#">2021</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div><!-- /item -->
+
+              <!-- item 5 -->
+							<div class="col-md-3 col-sm-3 corporate">
+                <!-- item -->
+
+                <div class="item-box">
+                  <figure>
+                    <span class="item-hover">
+                      <span class="overlay dark-5"></span>
+                    </span>
+                    <%= image_tag "AdobeStock_179073967.jpeg", class: 'img-fluid', style: 'width:600px; height:399px;' %>
+                  </figure>
+
+                  <div class="item-box-desc">
+                    <h3>ESD Building, Montreal</h3>
+                    <ul class="list-inline categories m-0">
+                      <li><a href="#">Coroporate Building</a></li>
+                      <li><a href="#">2018</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div><!-- /item -->
+
+              <!-- item 6 -->
+							<div class="col-md-3 col-sm-3 residential">
+                <!-- item -->
+
+                <div class="item-box">
+                  <figure>
+                    <span class="item-hover">
+                      <span class="overlay dark-5"></span>
+                    </span>
+
+                    <%= image_tag "AdobeStock_42622540.jpeg", class: 'img-fluid', style: 'width:600px; height:399px;' %>
+                  </figure>
+
+                  <div class="item-box-desc">
+                    <h3>ASD Building, Quebec City</h3>
+                    <ul class="list-inline categories m-0">
+                      <li><a href="#">Residential Building</a></li>
+                      <li><a href="#">2020</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div><!-- /item -->
+
+
+              <!-- item 7 -->
+							<div class="col-md-3 col-sm-3 corporate">
+                <!-- item -->
+
+                <div class="item-box">
+                  <figure>
+                    <span class="item-hover">
+                      <span class="overlay dark-5"></span>
+                    </span>
+                    <%= image_tag "AdobeStock_146216308.jpeg", class: 'img-fluid', style: 'width:600px; height:399px;' %>
+                  </figure>
+
+                  <div class="item-box-desc">
+                    <h3>MEPA Building, Toronto</h3>
+                    <ul class="list-inline categories m-0">
+                      <li><a href="#">Coroporate Building</a></li>
+                      <li><a href="#">2019</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div><!-- /item -->
+
+              <!-- item 8 -->
+							<div class="col-md-3 col-sm-3 residential">
+                <!-- item -->
+
+                <div class="item-box">
+                  <figure>
+                    <span class="item-hover">
+                      <span class="overlay dark-5"></span>
+                    </span>
+                    <%= image_tag "AdobeStock_41696502.jpeg", class: 'img-fluid', style: 'width:600px; height:399px;' %>
+                  </figure>
+
+                  <div class="item-box-desc">
+                    <h3>PEMONA Building, Edmonton</h3>
+                    <ul class="list-inline categories m-0">
+                      <li><a href="#">Residential Building</a></li>
+                      <li><a href="#">2018</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div><!-- /item -->
+
+              <!-- item 9 -->
+							<div class="col-md-3 col-sm-3 residential">
+                <!-- item -->
+
+                <div class="item-box">
+                  <figure>
+                    <span class="item-hover">
+                      <span class="overlay dark-5"></span>
+                    </span>
+                    <%= image_tag "AdobeStock_3294993.jpeg", class: 'img-fluid', style: 'width:600px; height:399px;' %>
+                  </figure>
+
+                  <div class="item-box-desc">
+                    <h3>Exeter Building, Montreal</h3>
+                    <ul class="list-inline categories m-0">
+                      <li><a href="#">Residential Building</a></li>
+                      <li><a href="#">2018</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div><!-- /item -->
+
+              <!-- item 10 -->
+							<div class="col-md-3 col-sm-3 award">
+                <!-- item -->
+
+                <div class="item-box">
+                  <figure>
+                    <span class="item-hover">
+                      <span class="overlay dark-5"></span>
+                    </span>
+                    <%= image_tag "award3.png", class: 'img-fluid', style: 'width:600px; height:399px;' %>
+                  </figure>
+
+                  <div class="item-box-desc">
+                    <h3>Excellence in Constructions Award</h3>
+                    <ul class="list-inline categories m-0">
+                      <li><a href="#">Award</a></li>
+                      <li><a href="#">2019</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div><!-- /item -->
+
+              <!-- item 11 -->
+							<div class="col-md-3 col-sm-3 award">
+                <!-- item -->
+
+                <div class="item-box">
+                  <figure>
+                    <span class="item-hover">
+                      <span class="overlay dark-5"></span>
+                    </span>
+                    <%= image_tag "award4.png", class: 'img-fluid', style: 'width:600px; height:399px;' %>
+                  </figure>
+
+                  <div class="item-box-desc">
+                    <h3>ABC Pyramid Award</h3>
+                    <ul class="list-inline categories m-0">
+                      <li><a href="#">Award</a></li>
+                      <li><a href="#">2018</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div><!-- /item -->
+
+              <!-- item 12 -->
+							<div class="col-md-3 col-sm-3 award">
+                <!-- item -->
+
+                <div class="item-box">
+                  <figure>
+                    <span class="item-hover">
+                      <span class="overlay dark-5"></span>
+                    </span>
+                    <%= image_tag "award1.png", class: 'img-fluid', style: 'width:600px; height:399px;' %>
+                  </figure>
+
+                  <div class="item-box-desc">
+                    <h3>Project of the Year Award</h3>
+                    <ul class="list-inline categories m-0">
+                      <li><a href="#">Award</a></li>
+                      <li><a href="#">2020</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div><!-- /item -->
+
+
+
+						</div>
+
+
+				</div>
+			</section>
+ 
+  <!--/Portfolio-->
+  <!-- Team-->
+  <section id="team" class="alternate">
+        <!-- testimonials -->
+        <div class="container">
+          <div class="heading-title text-center">
+            <h2>Our Commitment to You</h2>
+          </div>
+
+          <div
+            class="text-center owl-testimonial m-0"
+            data-plugin-options='{"singleItem": true, "autoPlay": 4000, "navigation": false, "pagination": true, "transitionStyle":"fade"}'
+          >
+            <div class="testimonial">
+              <figure>
+              <%= image_tag "ceo.jpg", class: 'rounded' %>
+              </figure>
+              <div class="testimonial-content p-0">
+                <p class="lead">
+                  We are proud to provide you with years of industry experience and expertise in elevator services.
+                </p>
+                <cite>
+                  Perry Sawatzky
+                  <span>CEO of Rocket Elevators</span>
+                </cite>
+              </div>
+            </div>
+
+            <div class="testimonial">
+              <figure>
+              <%= image_tag "employee-of-the-month.jpg", class: 'rounded'%>
+              </figure>
+              <div class="testimonial-content p-0">
+                <p class="lead">
+                  Rocket Elevators is the best company I've worked at! 
+                </p>
+                <cite>
+                  Eileen Ai
+                  <span>Employee of the Month</span>
+                </cite>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /testimonials -->
+  </section>
+
+  <!--News-->
+  <section class="alternate" id="news">
+    <div class="container">
+      <div class="heading-title heading-dotted text-center">
+        <h2>Recent News</h2>
+      </div>
+
+      <!-- 
+        controlls-over		= navigation buttons over the image 
+        buttons-autohide 	= navigation buttons visible on mouse hover only
+        
+        data-plugin-options:
+          "singleItem": true
+          "autoPlay": true (or ms. eg: 4000)
+          "navigation": true
+          "pagination": true
+          "items": "4"
+
+        owl-carousel item paddings
+          .owl-padding-0
+          .owl-padding-3
+          .owl-padding-6
+          .owl-padding-10
+          .owl-padding-15
+          .owl-padding-20
+      -->
+      <div class="owl-carousel owl-padding-10 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items":"4", "autoPlay": 4000, "navigation": true, "pagination": false}'>
+        <div class="img-hover">
+
+          <%= image_tag "news1.jpeg", class: 'img-fluid'%>				
+
+          <h4 class="text-left mt-20"><a href="https://elevatorworld.com/news/daily-news/170-tke-units-including-twin-elevators-for-doha-oasis/">
+            170 TKE Units, Including Twin Elevators, For Doha Oasis</a>
+          </h4>
+          <p class="text-left">
+            TK Elevator (TKE) supplied more than 170 vertical-transportation
+            (VT) units for Doha Oasis, a 470,000-m2 residential, commercial,
+            shopping and entertainment complex in the heart of Doha,
+            Qatar...
+          </p>
+          <ul class="text-left fs-12 list-inline list-separator">
+            <li>
+              <i class="fa fa-calendar"></i>
+              26th Jan 2022
+            </li>
+            
+          </ul>
+            </div>
+            <div class="img-hover">
+              
+              <%= image_tag "news2.jpeg", class: 'img-fluid'%>
+          </a>
+
+          <h4 class="text-left mt-20">
+            <a
+              href="https://elevatorworld.com/news/daily-news/touchless-keypad-installed-in-canadian-citys-elevator/"
+              >Touchless Keypad Installed In Canadian City’s Elevator</a
+            >
+          </h4>
+          <p class="text-left">
+            Officials with the City of Cheboygan, Michigan, are still
+            looking for elevator repairs to the city’s pedestrian
+            footbridge...
+          </p>
+          <ul class="text-left fs-12 list-inline list-separator">
+            <li>
+              <i class="fa fa-calendar"></i>
+              26th Jan 2022
+            </li>
+            
+          </ul>
+            </div>
+            <div class="img-hover">
+              
+              <%= image_tag "news3.jpeg", class: 'img-fluid', style: 'height:265px;'%>
+            
+
+              <h4 class="text-left mt-20">
+            <a
+              href="https://elevatorworld.com/news/daily-news/planned-building-to-be-salt-lake-citys-tallest-high-rise/"
+              >Planned Building To Be Salt Lake City’s Tallest High Rise</a
+            >
+          </h4>
+          <p class="text-left">
+            Astra Tower, a 40-story luxury residential high-rise that will
+            become Salt Lake City’s tallest tower, has officially broken
+            ground...
+          </p>
+          <ul class="text-left fs-12 list-inline list-separator">
+            <li>
+              <i class="fa fa-calendar"></i>
+              24th Jan 2022
+            </li>
+            
+          </ul>
+            </div>
+            <div class="img-hover">
+              
+              <%= image_tag "news5.jpeg", class: 'img-fluid'%>
+
+              <h4 class="text-left mt-20">
+            <a
+              href="https://elevatorworld.com/news/daily-news/work-begins-on-fifteen-fifteen-construction-in-vancouver/"
+              >Work Begins On Fifteen Fifteen Construction In Vancouver</a
+            >
+          </h4>
+          <p class="text-left" >
+            Fifteen Fifteen, a residential apartment tower planned in
+            Vancouver, Canada, is now under construction...
+          </p>
+          <ul class="text-left fs-12 list-inline list-separator">
+            <li>
+              <i class="fa fa-calendar"></i>
+              21th Jan 2022
+            </li>
+            
+          </ul>
+            </div>
+            <div class="img-hover">
+              
+              <%= image_tag "news4.jpeg", class: 'img-fluid', style: 'height:265px;'%>
+            
+
+              <h4 class="text-left mt-20">
+            <a
+              href="https://elevatorworld.com/news/daily-news/ctbuh-announces-major-leaderships-new-roles/"
+              >CTBUH Announces Major Leaderships' New Roles</a
+            >
+          </h4>
+          <p class="text-left">
+            The Council on Tall Buildings and Urban Habitat (CTBUH) has
+            named Javier Quintana de Uña as the new CEO, the board
+            announces...
+          </p>
+          <ul class="text-left fs-12 list-inline list-separator">
+            <li>
+              <i class="fa fa-calendar"></i>
+              25th Jan 2022
+            </li>
+            
+          </ul>
+            </div>
+            <div class="img-hover">
+              
+              <%= image_tag "news6.jpeg", class: 'img-fluid'%>
+            
+
+              <h4 class="text-left mt-20">
+            <a
+              href="https://elevatorworld.com/news/daily-news/classic-lever-house-office-building-undergoing-restoration/"
+              >Classic Lever House Office Building Undergoing Restoration</a
+            >
+          </h4>
+          <p class="text-left">
+            Developers Brookfield Properties and WatermanClark are ready to launch work on the redevelopment...
+          </p>
+          <ul class="text-left fs-12 list-inline list-separator">
+            <li>
+              <i class="fa fa-calendar"></i>
+              21th Jan 2022
+            </li>
+            
+          </ul>
+        </div>
+
+      </div>
+    </div>
+</section>
+
+
+
+  <!--Parallax-->
+  <section class="parallax parallax-2" style="background-image: url('../assets/1-min.jpg')">
+    <div class="overlay dark-4"><!-- dark overlay [1 to 9 opacity] --></div>
+
+    <div class="container text-center">
+      <h2 class="font-raleway mb-10">
+        Providing Excellent Service Since 1976
+      </h2>
+
+      <a class="btn btn-default btn-lg" href="#contact"
+        >CONTACT US</a>
+      &nbsp; OR &nbsp;
+      <%= link_to "Get A Quote NOW", "/quotes/new", class:"btn btn-primary btn-lg"  %>
+    </div>
+  </section>
+
+<!--Clients-->
+<section id="clients">
+  <div class="container">
+    <div class="heading-title heading-dotted text-center">
+      <h2>Our Customers</h2>
+    </div>
+
+    <ul class="row clients-dotted list-inline">
+      <li class="col-md-3 col-sm-3 col-6">
+      <%= image_tag "client_logo1.png", class: 'img-fluid', alt: 'client' %>
+      </li>
+      <li class="col-md-3 col-sm-3 col-6">
+        <%= image_tag "client_logo2.png", class: 'img-fluid', alt: 'client' %>
+      </li>
+      <li class="col-md-3 col-sm-3 col-6">
+      <%= image_tag "client_logo10.jpeg", class: 'img-fluid', alt: 'client' %>
+      </li>
+      <li class="col-md-3 col-sm-3 col-6">
+        <%= image_tag "client_logo9.png", class: 'img-fluid', alt: 'client' %>
+      </li>
+      <li class="col-md-3 col-sm-3 col-6">
+        <%= image_tag "client_logo5.png", class: 'img-fluid', alt: 'client' %>
+      </li>
+      <li class="col-md-3 col-sm-3 col-6">
+      <%= image_tag "client_logo6.jpeg", class: 'img-fluid', alt: 'client' %>
+      </li>
+      <li class="col-md-3 col-sm-3 col-6">
+        <%= image_tag "client_logo7.png", class: 'img-fluid', alt: 'client' %>
+      </li>
+      <li class="col-md-3 col-sm-3 col-6">
+        <%= image_tag "client_logo8.jpeg", class: 'img-fluid', alt: 'client' %>
+      </li>
+      <li class="col-md-3 col-sm-3 col-6">
+        <%= image_tag "client_logo11.jpeg", class: 'img-fluid', alt: 'client' %>
+      </li>
+      <li class="col-md-3 col-sm-3 col-6">
+        <%= image_tag "client_logo12.jpeg", class: 'img-fluid', alt: 'client' %>
+      </li>
+      <li class="col-md-3 col-sm-3 col-6">
+        <%= image_tag "client_logo13.jpeg", class: 'img-fluid', alt: 'client' %>
+      </li>
+      <li class="col-md-3 col-sm-3 col-6">
+        <%= image_tag "client_logo14.jpeg", class: 'img-fluid', alt: 'client' %>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!--Contact-->
+
+
+        
+
+      <%= render "home/contactform", lead: @lead %>
+
+        

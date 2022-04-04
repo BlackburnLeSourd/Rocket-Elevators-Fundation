@@ -1,0 +1,2 @@
+class FactQuote < BasePostgresRecord
+end

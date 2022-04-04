@@ -1,0 +1,197 @@
+<%# form_with model: @lead, url: leads_path, method: :post, locals: true do |f| %>
+    <section class="alternate" id="contact">
+    <div class="container">
+      <div class="row">
+        <!-- FORM -->
+        <div class="col-md-9">
+          <h3>
+            Drop us a line or just say <strong><em>Hello!</em></strong>
+          </h3>
+  
+          <!--
+      MESSAGES
+      
+        How it works?
+        The form data is posted to php/contact.php where the fields are verified!
+        php.contact.php will redirect back here and will add a hash to the end of the URL:
+          #alert_success 		= email sent
+          #alert_failed		= email not sent - internal server error (404 error or SMTP problem)
+          #alert_mandatory	= email not sent - required fields empty
+          Hashes are handled by assets/js/contact.js
+  
+        Form data: required to be an array. Example:
+          contact[email][required]  WHERE: [email] = field name, [required] = only if this field is required (PHP will check this)
+          Also, add `required` to input fields if is a mandatory field. 
+          Example: <input required type="email" value="" class="form-control" name="contact[email][required]">
+  
+        PLEASE NOTE: IF YOU WANT TO ADD OR REMOVE FIELDS (EXCEPT CAPTCHA), JUST EDIT THE HTML CODE, NO NEED TO EDIT php/contact.php or javascript
+                ALL FIELDS ARE DETECTED DINAMICALY BY THE PHP
+  
+        WARNING! Do not change the `email` and `name`!
+              contact[name][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
+              contact[email][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
+    -->
+  
+  
+  
+    <!-- Alert Success -->
+    <div id="alert_success" class="alert alert-success mb-30">
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-hidden="true"
+      >
+        &times;
+      </button>
+      <strong>Thank You!</strong> Your message successfully sent!
+    </div>
+    <!-- /Alert Success -->
+
+    <!-- Alert Failed -->
+    <div id="alert_failed" class="alert alert-danger mb-30">
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-hidden="true"
+      >
+        &times;
+      </button>
+      <strong>[SMTP] Error!</strong> Internal server error!
+    </div>
+    <!-- /Alert Failed -->
+
+    <!-- Alert Mandatory -->
+    <div id="alert_mandatory" class="alert alert-danger mb-30">
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-hidden="true"
+      >
+        &times;
+      </button>
+      <strong>Sorry!</strong> You need to complete all mandatory (*)
+      fields!
+    </div>
+    <!-- /Alert Mandatory -->
+    
+    <%= form_for Lead.new do |f| %>
+    <div class="row">
+        <div class="col-md-4">
+            <%= f.label :full_name, "Full contact name" %>
+            <%= f.text_field :full_name, :required => true %>
+        </div>
+
+        <div class="col-md-4">
+            <%= f.label :cie_name, "Business name"%>
+            <%= f.text_field :cie_name, :required => true %>
+        </div>
+
+        <div class="col-md-4">
+            <%= f.label :email, "E-mail" %>
+            <%= f.email_field :email, :required => true %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <%= f.label :phone, "Phone" %>
+            <%= f.telephone_field :phone, :required => true %>
+        </div>
+
+        <div class="col-md-4">
+            <%= f.label :project_name, "Project name" %>
+            <%= f.text_field :project_name %>
+        </div>
+
+        <div class="col-md-4">
+            <%= f.label :department_in_charge, "Department" %>
+            <%= f.text_field :department_in_charge %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <%= f.label :project_description, "Project description" %>
+            <%= f.text_area :project_description %>
+        </div>
+    </div>
+
+    <div class="clearfix">
+        <%= f.label :message, "Message" %>
+        <%= f.text_area :message %>
+    </div>
+
+    <div class="clearfix mt-30">
+        <%= f.label :attached_files, "File Attachment" %>
+        <%= f.file_field :attached_files %>
+    
+        <small class="text-muted block">
+            Max file size: 10Mb (zip/pdf/jpg/png)
+        </small>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <%= f.submit "SEND MESSAGE" %>    
+        </div>
+    </div>
+</div>
+<% end %>
+
+
+<% if flash[:error].present? %>
+  <p class='flash-error'><%= flash[:error] %></p>
+<% end %>
+<% if flash[:notice].present? %>
+  <p class='flash-notice'><%= flash[:notice] %></p>
+<% end %>
+    
+    <!-- INFO -->
+    <div class="col-md-3">
+      <h2>Contact Us</h2>
+
+      <p>
+        Still got a question? Contact us directly at the following phone
+        number and email address, or simply drop by our office!
+      </p>
+
+      <hr />
+
+      <p>
+        <span class="block"
+          ><strong><i class="fa fa-map-marker"></i> Address:</strong>
+          4468 Wellington St Suite 204, Verdun, Quebec H4G 1W5</span
+        >
+        <span class="block"
+          ><strong><i class="fa fa-phone"></i> Phone:</strong>
+          <a href="tel:1800-887-2497">(418) 555-1234</a></span
+        >
+        <span class="block"
+          ><strong><i class="fa fa-envelope"></i> Email:</strong>
+          <a href="mailto:info@codeboxx.biz"
+            >info@codeboxx.biz</a
+          ></span
+        >
+      </p>
+
+      <hr />
+
+      <h4 class="font300">Business Hours</h4>
+      <p>
+        <span class="block"
+          ><strong>Monday - Friday:</strong> 8am to 5pm</span
+        >
+        <span class="block"
+          ><strong>Saturday - Sunday:</strong> Closed</span>
+      </p>
+    </div>
+    <!-- /INFO -->
+  </div>
+</div>
+</section>
+
+
+    

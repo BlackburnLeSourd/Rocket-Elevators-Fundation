@@ -1,0 +1,21 @@
+
+<% folderpath = Rails.root.join('app','assets', 'audios') %>
+<% filepath = Dir.glob(folderpath + "*").max {|a,b| File.ctime(a) <=> File.ctime(b) }%>
+<% puts file = File.basename(filepath) %>
+
+<br>
+<p>
+<br>
+<p>
+<section>
+<audio src="<%= audio_path file %>" type="audio/mpeg" controls>
+    Your browser does not support the audio element.
+</audio>
+
+</section>
+<br>
+<p>
+<br>
+<p>
+
+<%= link_to "Go back to Admin Dashboard", "/admin", class:"btn mt-30" %>

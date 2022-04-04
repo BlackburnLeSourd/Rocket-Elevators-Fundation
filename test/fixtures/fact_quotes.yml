@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quoteId: 1
+  companyName: MyString
+  email: MyString
+  nbElevator: 1
+
+two:
+  quoteId: 1
+  companyName: MyString
+  email: MyString
+  nbElevator: 1
