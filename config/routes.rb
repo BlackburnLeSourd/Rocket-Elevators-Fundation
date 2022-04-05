@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :interventions
   post 'twilio/sms'
   resources :quotes
   get 'quotes/quote'
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
   # get '/', to: "home#index"
   get "residential", to: "home#residential"
   get "commercial", to: "home#commercial"
-  
+  get "interventions", to: "interventions#interventions"
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
