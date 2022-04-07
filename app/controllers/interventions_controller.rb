@@ -13,6 +13,14 @@ class InterventionsController < ApplicationController
   # GET /interventions/new
   def new
     @intervention = Intervention.new
+
+    @customer = Customer.all
+    @building = Building.all
+    @battery = Battery.all
+    @column = Column.all
+    @elevator = Elevator.all
+    @employee = Employee.all
+    # @report = Report.all
   end
 
   # GET /interventions/1/edit
@@ -68,6 +76,8 @@ class InterventionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def intervention_params
-      params.fetch(:intervention, {})
+    #   params.fetch(:intervention, {})
+      params.require(:intervention).permit(:custumerID,:buildingID,:batteryID,:columnID,:elevatorID,:employeeID,:report)
+    
     end
 end
