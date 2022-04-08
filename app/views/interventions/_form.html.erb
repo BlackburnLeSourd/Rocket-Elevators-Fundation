@@ -16,8 +16,21 @@
     </div>
   <% end %>
 
+            <!-- author -->
 
-  <!-- Customer -->
+            <div class="card card-default">
+                <div class="card-heading card-heading-transparent">
+                    <label for="building-type" class="card-title">
+                        <h3>
+                            <span style="color:rgb(10, 101, 160); font-weight:bolder">Author |</span> Welcome <%= @author %>
+                    </label>
+                </div>
+            </div>
+            
+            <%= form.text_field(:author, :readonly=>true, :value=>@author) %>
+            
+
+            <!-- customer -->
 
 <div class="card card-default">
                 <div class="card-heading card-heading-transparent">
@@ -28,9 +41,10 @@
                     </label>
                 </div>
                 <div class="card-block" style="margin: 20px">
-                    <%= form.select(:custumerID) do %>
+                    <select id="customer"<%= form.select(:customerID) do %>> 
+                    
                           <% @customer.each do |l| -%>
-                           <%= content_tag(:option, l.Company_Name, value: l.id) %>
+                          <%= content_tag(:option, l.Company_Name, value: l.id) %>
                        <% end %>
                     <% end %>
                 </div>
@@ -47,10 +61,10 @@
                         </h3>
                     </label>
                 </div>
-                <div class="card-block" style="margin: 20px">
-                    <%= form.select(:buildingID) do %>
+                <div class="card-block" style="margin: 20px"> 
+                          <select id="building" <%= form.select(:buildingID) do %>>
                           <% @building.each do |l| -%>
-                           <%= content_tag(:option, l.id, value: l.id) %>
+                          <%= content_tag(:option, l.id, value: l.id) %>
                        <% end %>
                     <% end %>
                 </div>

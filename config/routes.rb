@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   get 'rails_admin/data/playbriefing', to: 'data#playbriefing'
   get 'rails_admin/data/map', to: 'data#map'
 
+  get 'get_building_by_customer/:customer_id', to: 'interventions#get_building_by_customer' 
+  get "get_battery_by_building/:building_id" , to: 'interventions#get_battery_by_building'
 
   # get '/', to: "home#index"
   get "residential", to: "home#residential"

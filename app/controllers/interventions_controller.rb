@@ -20,7 +20,9 @@ class InterventionsController < ApplicationController
     @column = Column.all
     @elevator = Elevator.all
     @employee = Employee.all
-    # @report = Report.all
+    
+    user = Employee.find(current_user.id)
+    @author = user.first_name + " " + user.last_name
   end
 
   # GET /interventions/1/edit
@@ -30,6 +32,18 @@ class InterventionsController < ApplicationController
   # POST /interventions or /interventions.json
   def create
     @intervention = Intervention.new(intervention_params)
+
+    # Create for intervention_AJAX
+    
+    # customer
+    
+        #building
+    def get_battery_by_building
+        @building = Battery.where("building_id = ?", params[:building_id])
+        respond_to do |format|
+          format.json { render :json => @building }
+        end
+    end
 
     respond_to do |format|
       if @intervention.save
@@ -68,6 +82,13 @@ class InterventionsController < ApplicationController
     end
   end
 
+  def get_building_by_customer
+    @building = Building.where("customer_id = ?", params[:customer_id])
+    respond_to do |format|
+      format.json { render :json => @building }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_intervention
@@ -77,7 +98,7 @@ class InterventionsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def intervention_params
     #   params.fetch(:intervention, {})
-      params.require(:intervention).permit(:custumerID,:buildingID,:batteryID,:columnID,:elevatorID,:employeeID,:report)
+      params.require(:intervention).permit(:customerID,:buildingID,:batteryID,:columnID,:elevatorID,:employeeID,:report, :author)
     
     end
 end
