@@ -33,7 +33,8 @@ Rails.application.routes.draw do
 
   get 'get_building_by_customer/:customer_id', to: 'interventions#get_building_by_customer' 
   get "get_battery_by_building/:building_id" , to: 'interventions#get_battery_by_building'
-
+  get "get_column_by_battery/:battery_id" , to: "interventions#get_column_by_battery"
+  get "get_elevator_by_column/:column_id" , to: "interventions#get_elevator_by_column"
   # get '/', to: "home#index"
   get "residential", to: "home#residential"
   get "commercial", to: "home#commercial"

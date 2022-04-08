@@ -33,18 +33,6 @@ class InterventionsController < ApplicationController
   def create
     @intervention = Intervention.new(intervention_params)
 
-    # Create for intervention_AJAX
-    
-    # customer
-    
-        #building
-    def get_battery_by_building
-        @building = Battery.where("building_id = ?", params[:building_id])
-        respond_to do |format|
-          format.json { render :json => @building }
-        end
-    end
-
     respond_to do |format|
       if @intervention.save
         format.html { redirect_to intervention_url(@intervention), notice: "Intervention was successfully created." }
@@ -82,6 +70,8 @@ class InterventionsController < ApplicationController
     end
   end
 
+        # building_by_customer
+
   def get_building_by_customer
     @building = Building.where("customer_id = ?", params[:customer_id])
     respond_to do |format|
@@ -89,6 +79,31 @@ class InterventionsController < ApplicationController
     end
   end
 
+        #battery_by_building
+        def get_battery_by_building
+            @battery = Battery.where("building_id = ?", params[:building_id])
+            respond_to do |format|
+              format.json { render :json => @battery }
+            end
+        end
+    
+        #column_by_battery
+
+        def get_column_by_battery
+            @column = Column.where("battery_id = ?", params[:battery_id])
+            respond_to do |format|
+              format.json { render :json => @column }
+            end
+        end
+
+        #elevator_by_column
+
+        def get_elevator_by_column
+            @elevator = Elevator.where("column_id = ?", params[:column_id])
+            respond_to do |format|
+              format.json { render :json => @elevator }
+            end
+        end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_intervention
