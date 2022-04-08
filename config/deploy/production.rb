@@ -1,4 +1,4 @@
-# server-based syntax
+j# server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
@@ -8,7 +8,7 @@ server "35.183.131.50", user: "ubuntu", roles: %w{app db web}
 # server "db.example.com", user: "deploy", roles: %w{db}
 app = ENV['APP']
 if app.nil? or app.empty?
-  app = "EricGaudreault" 
+  app = "NicolasBlackburn" 
 end
 set :branch, proc { `git rev-parse --abbrev-ref main`.chomp }
 set :application, app
