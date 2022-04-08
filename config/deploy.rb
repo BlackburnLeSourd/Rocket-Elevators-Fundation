@@ -14,7 +14,7 @@ namespace :custom do
   end
 
 set :application, "NicolasBlackburn"
-set :repo_url, "git@github.com:BlackburnLeSourd/Rocket-Elevators-Fundation.git"
+set :repo_url, "https://github.com/BlackburnLeSourd/Rocket-Elevators-Fundation.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
