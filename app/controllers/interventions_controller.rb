@@ -23,6 +23,7 @@ class InterventionsController < ApplicationController
     
     user = Employee.find(current_user.id)
     @author = user.first_name + " " + user.last_name
+    @authoremail = user.email
   end
 
   # GET /interventions/1/edit
@@ -32,7 +33,53 @@ class InterventionsController < ApplicationController
   # POST /interventions or /interventions.json
   def create
     @intervention = Intervention.new(intervention_params)
+# freshdesk
+    cie = @lead.cie_name.to_s.gsub(/\s+/, '')
+    dirname = Rails.root.join('public','uploads', cie)
+    unless File.directory?(dirname)
+      FileUtils.mkdir_p(dirname)
+    end
 
+     
+      if @customer.Company_Name == nil
+        @customer.Company_Name= "n/a"
+      end
+      if @intervention.buildingID == nil
+        @intervention.buildingID  = "n/a"
+      end
+      if @intervention.batteryID == nil
+        @intervention.batteryID = "n/a"
+      end
+      if @intervention.columnID  == nil
+        @intervention.columnID = "n/a"
+      end
+      if @intervention.elevatorID == nil
+        @intervention.elevatorID = "n/a"
+      end
+      if @intervention.employeeID == nil
+        @intervention.employeeID = "n/a"
+      end
+      if @intervention.report == nil
+        @intervention.report = "n/a"
+      end
+      site = RestClient::Resource.new(ENV['FRESHDESK_URL'], ENV["FRESHDESK_API_KEY"], 'X')
+      url = ENV['FRESHDESK_URL']
+
+      data_wo_attachment = {
+        "status": 2, 
+        "priority": 1,
+        "name": @author,
+        "email": @authoremail,
+        "description": 
+            "Intervention #" + @intervention.id
+          "The contact" + @lead.full_name + " from company " + @lead.cie_name + " can be reached at email " + @lead.email + " and at phone number " + @lead.phone + ". " + @lead.department_in_charge + " has a project named " + @lead.project_name + " which would require contribution from Rocket Elevators. The project description is " + @lead.project_description + ". Attached message: " + @lead.message + ". The Contact has " + has_attachment + " uploaded an attachment.",
+        "type": "Intervention",
+        "subject": "Intervention #" + @intervention.id,
+      }
+      data_json = JSON.generate(data_wo_attachment)
+      site.post(data_json, :content_type => "application/json"){ |response, request, result, &block|
+      if [301, 302, 307].include? response.code
+        redirected_url = response.headers[:location]
     respond_to do |format|
       if @intervention.save
         format.html { redirect_to intervention_url(@intervention), notice: "Intervention was successfully created." }
