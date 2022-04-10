@@ -1,7 +1,8 @@
+class InterventionsController < ApplicationController
+
     require 'rest_client'
     require 'json'
-
-class InterventionsController < ApplicationController
+    
   before_action :set_intervention, only: %i[ show edit update destroy ]
 
   # GET /interventions or /interventions.json
@@ -42,6 +43,13 @@ class InterventionsController < ApplicationController
       if @intervention.save
 
       
+        author = Employee.find(current_user.id)
+        authorCompleteName = author.first_name + " " + author.last_name
+
+        if @intervention.id  == nil
+            @intervention.id = "n/a"
+        end
+
         if @intervention.customerID != nil 
         company_Name = Customer.find(@intervention.customerID).Company_Name
         else
@@ -77,13 +85,13 @@ class InterventionsController < ApplicationController
         end
 
    
-      data_wo_attachment = {
+      data = {
         "status": 2, 
         "priority": 1,
-        "name": @author,
+        "name": authorCompleteName,
         "email": "admin@rocketelevators.com",
         "description": 
-        " New intervention ticket created #" + @intervention.id + ". The requester is" + @author + ". The company is" + companyName + ". The building ID is " + @intervention.buildingID.to_s + ". The battery ID is " + @intervention.batteryID.to_s + ". The column ID is" + @intervention.columnID.to_s + ". The elevator ID is " + @intervention.elevatorID.to_s + ". The task is assigned to " + employeeCompleteName + ". The description of the request for the intervention is: " + @intervention.report, 
+        " New intervention ticket created #" + @intervention.id.to_s + ". The requester is " + authorCompleteName  + ". The company is " + company_Name + ". The building ID is " + @intervention.buildingID.to_s + ". The battery ID is " + @intervention.batteryID.to_s + ". The column ID is " + @intervention.columnID.to_s + ". The elevator ID is " + @intervention.elevatorID.to_s + ". The task is assigned to " + employeeCompleteName + ". The description of the request for the intervention is ===> " + @intervention.report, 
         "type": "Incident",
         "subject": "New intervention ticket created No." + @intervention.buildingID.to_s
         }
@@ -108,18 +116,6 @@ class InterventionsController < ApplicationController
       end
     end
   end
-
-    respond_to do |format|
-      if @intervention.save
-        format.html { redirect_to intervention_url(@intervention), notice: "Intervention was successfully created." }
-        format.json { render :show, status: :created, location: @intervention }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @intervention.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   def interventions
   end
 
