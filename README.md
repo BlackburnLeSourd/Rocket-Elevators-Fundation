@@ -144,3 +144,30 @@ Steps to configure slack:
 ### Twilio
 
 When an elevator status is changed from any non-Intervention status to "Intervention" a text message is immediately sent to the technician in charge of the elevators alerting him that an elevator needs to be checked and gives him the elevator ID at the same time. You can try this very easily by changing an elevator status in the admin pannel.
+
+### Intervention table
+intervention mysql2 table added using scaffold on ubuntu with the column list ID, etc.
+This way, they created the intervention file , controller, etc.
+
+### Intervention form
+new intervention form added
+only accesible by admin users
+added Intervention Section next to contact only when Admin is logged in.
+it saves the form in the intervention table.
+We can see the data intervention in admin section.
+
+### FreshDesk Intervention Ticket
+When Intervention is created, I can receive a ticket on Freshdesk website.
+Need the url and Api in application.yml to make work.
+In the ticket, All include info :
+The Requester
+The Customer (Company Name)
+Building ID
+The Battery ID
+The Column ID if specified
+Elevator ID if specified
+The employee to be assigned to the task
+Description of the request for intervention
+
+
+
