@@ -158,7 +158,7 @@ We can see the data intervention in admin section.
 
 ### FreshDesk Intervention Ticket
 When Intervention is created, I can receive a ticket on Freshdesk website.
-Need the url and Api in application.yml to make work.
+Need the url and Api key in application.yml to make it work.
 In the ticket, All include info :
 The Requester
 The Customer (Company Name)
